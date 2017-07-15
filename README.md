@@ -1,4 +1,4 @@
-# docker-rundeck
+# docker-rundeck-cluster
 
 Rundeck is an open source automation service with a web console, command line tools and a WebAPI. It lets you easily run automation tasks across a set of nodes.
 
@@ -7,13 +7,13 @@ Rundeck is an open source automation service with a web console, command line to
 * three commands ;)
 
 ```
-git clone https://github.com/remijouannet/docker-rundeck.git
-cd docker-rundeck
+git clone https://github.com/justindavis/docker-rundeck-cluster.git
+cd docker-rundeck-cluster
 docker-compose up
 ```
 
 
-* if you wan to configure rundeck
+* if you want to configure rundeck
 
 ```
 MYSQL_DATABASE: rundeck #database for rundeck
@@ -82,7 +82,7 @@ rundeck2:
 
 
 
-after that juste access the web ui with the following link :
+after that just access the web ui with the following link :
 * https://localhost:4443/, for the first node
 * https://localhost:4442/, for the second node
 * login per default (if the variable was not change) : admin / admin
