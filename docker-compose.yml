@@ -7,8 +7,8 @@ mysql:
         MYSQL_ROOT_PASSWORD: 701d8d441eafc7023c9076125b5c4fcc82bc713f 
     volumes:
         - ./volume/mysql:/var/lib/mysql
-    ports:
-        - "3306:3306"
+#   ports:
+#       - "3306:3306"
 rundeck1:
     build: .
     environment:
@@ -17,15 +17,16 @@ rundeck1:
         MYSQL_PASSWORD: 701d8d441eafc7023c9076125b5c4fcc82bc713f
         HOST_RUNDECK: localhost
         SERVER_URL: https://localhost:4443
-        PASSWORD: admin
+        PASSWORD: f0rdpr3f3ct
     ports:
         - "4443:4443"
+        - "4440:4440"
     links:
         - mysql
     volumes:
         - ./volume/etc1:/etc/rundeck
-        - ./volume/rundeck:/var/rundeck
-        - ./volume/lib:/var/lib/rundeck
+        - ./volume/rundeck1:/var/rundeck
+        - ./volume/lib1:/var/lib/rundeck
         - ./volume/log:/var/log/rundeck
 rundeck2:
     build: .
@@ -35,13 +36,14 @@ rundeck2:
         MYSQL_PASSWORD: 701d8d441eafc7023c9076125b5c4fcc82bc713f
         HOST_RUNDECK: localhost
         SERVER_URL: https://localhost:4442
-        PASSWORD: admin
+        PASSWORD: f0rdpr3f3ct
     ports:
         - "4442:4443"
+        - "4441:4440"
     links:
         - mysql
     volumes:
         - ./volume/etc2:/etc/rundeck
         - ./volume/rundeck:/var/rundeck
-        - ./volume/lib:/var/lib/rundeck
+        - ./volume/lib2:/var/lib/rundeck
         - ./volume/log:/var/log/rundeck

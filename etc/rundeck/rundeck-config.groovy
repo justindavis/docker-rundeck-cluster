@@ -13,6 +13,10 @@ rundeck.clusterMode.enabled=true
 
 //rundeck.projectsStorageType= "db"
 
+rundeck.projectsStorageType = "db/filesystem"
+rundeck.config.storage.provider.1.type = "db"
+rundeck.storage.provider.1.type = "db"
+
 //dataSource.url = "jdbc:h2:file:/var/lib/rundeck/data/rundeckdb;MVCC=true;TRACE_LEVEL_FILE=4"
 
 //please see the following link for more information
