@@ -11,11 +11,14 @@ dataSource.driverClassName = "com.mysql.jdbc.Driver"
 
 rundeck.clusterMode.enabled=true
 
-//rundeck.projectsStorageType= "db"
+rundeck.projectsStorageType= "db"
 
-rundeck.projectsStorageType = "db/filesystem"
-rundeck.config.storage.provider.1.type = "db"
-rundeck.storage.provider.1.type = "db"
+// rundeck.projectsStorageType = "db/filesystem"
+
+rundeck.storage.provider.'1'.type = "db"
+rundeck.storage.provider.'1'.path = "/"
+
+// rundeck.storage.provider.1.type = "db"
 
 //dataSource.url = "jdbc:h2:file:/var/lib/rundeck/data/rundeckdb;MVCC=true;TRACE_LEVEL_FILE=4"
 

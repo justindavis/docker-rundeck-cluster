@@ -11,6 +11,7 @@ if [ ! -f /etc/rundeck/profile ]; then
     rpm -q rundeck || yum -y localinstall /rpms/rundeck.rpm /rpms/rundeck-config.rpm
 
     #yum -y install rundeck  --nogpgcheck
+    mv /app/*jar /var/lib/rundeck/libext/
     cp -r /app/etc/* /etc
     sed 's,https://localhost:4443,'$SERVER_URL',g' -i /etc/rundeck/rundeck-config.groovy
     sed 's,rundeckdb,'$MYSQL_DATABASE',g' -i /etc/rundeck/rundeck-config.groovy

@@ -16,8 +16,9 @@ COPY rpms /rpms
 
 COPY . /app
 WORKDIR /app
+ADD https://github.com/Batix/rundeck-ansible-plugin/releases/download/2.0.2/ansible-plugin-2.0.2.jar .
 
-RUN useradd -d /var/lib/rundeck -s /bin/false rundeck
+# RUN useradd -d /var/lib/rundeck -s /bin/false rundeck
 RUN chmod u+x ./run.sh
 
 EXPOSE 4443 4440
