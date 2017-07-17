@@ -1,0 +1,3 @@
+RDECK_CONFIG=/etc/rundeck
+RDECK_CONFIG_FILE=${RDECK_CONFIG}/rundeck-config.groovy
+RDECK_JVM_SETTINGS="${RDECK_JVM_SETTINGS} -Drundeck.ssl.config=/etc/rundeck/ssl/ssl.properties "
