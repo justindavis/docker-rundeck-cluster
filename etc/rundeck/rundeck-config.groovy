@@ -15,10 +15,10 @@ rundeck.projectsStorageType= "db"
 
 // rundeck.projectsStorageType = "db/filesystem"
 
+// NOTE: double quotes are not valid here.
+// Necessary for using the DB backend for key storage.
 rundeck.storage.provider.'1'.type = "db"
 rundeck.storage.provider.'1'.path = "/"
-
-// rundeck.storage.provider.1.type = "db"
 
 //dataSource.url = "jdbc:h2:file:/var/lib/rundeck/data/rundeckdb;MVCC=true;TRACE_LEVEL_FILE=4"
 
@@ -35,4 +35,3 @@ grails {
    }
 }
 grails.mail.default.from="noreply@test.com"
-
