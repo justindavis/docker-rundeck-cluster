@@ -35,3 +35,7 @@ grails {
    }
 }
 grails.mail.default.from="noreply@test.com"
+
+// GUI Customizations
+rundeck.gui.login.welcome = "Welcome. Primary HA node"
+rundeck.gui.title = "Rundeck Primary"

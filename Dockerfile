@@ -2,17 +2,19 @@ FROM centos:7
 
 MAINTAINER Justin Davis "justindavis@utexas.edu"
 
-RUN yum -y upgrade
+RUN yum -y upgrade && yum clean all
 
-RUN yum -y install bash java-1.8.0-openjdk-headless java-1.8.0-openjdk ca-certificates mysql-client util-linux initscripts openssh java-1.8.0-openjdk \
-    && rpm -Uvh http://repo.rundeck.org/latest.rpm  \
+RUN rpm -Uvh http://repo.rundeck.org/latest.rpm  \
+    && rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm \
+    && yum -y --nogpgcheck install bash java-1.8.0-openjdk-headless java-1.8.0-openjdk ca-certificates mysql-client \
+        util-linux initscripts openssh java-1.8.0-openjdk git ansible curl \
     && yum clean all
 
-#RUN yumdownloader --destdir= rundeck rundeck-config 
+# RUN yumdownloader --destdir= rundeck rundeck-config 
 
-COPY rpms /rpms
+# COPY rpms /rpms
 
-# RUN yumdownloader --destdir=./rpms/ rundeck rundeck-config 
+RUN yumdownloader --destdir=/rpms/ rundeck rundeck-config 
 
 COPY . /app
 WORKDIR /app
