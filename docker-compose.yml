@@ -8,8 +8,8 @@ mysql:
         TZ: America/Chicago
     volumes:
         - ./volume/mysql:/var/lib/mysql
-#   ports:
-#       - "3306:3306"
+    ports:
+      - "127.0.0.1:3306:3306"
 rundeck1:
     build: .
     environment:
@@ -17,8 +17,8 @@ rundeck1:
         MYSQL_USER: rundeck
         MYSQL_PASSWORD: 701d8d441eafc7023c9076125b5c4fcc82bc713f
         HOST_RUNDECK: localhost
-        SERVER_URL: https://ugh.laits.utexas.edu
-        PASSWORD: admin
+        SERVER_URL: ${SERVER_URL:-https://localhost}
+        PASSWORD: ${CRYPT_PASSWORD:-supersecure}
         TZ: America/Chicago
         SERVER_NAME: Primary
     ports:
@@ -38,8 +38,9 @@ rundeck2:
         MYSQL_USER: rundeck
         MYSQL_PASSWORD: 701d8d441eafc7023c9076125b5c4fcc82bc713f
         HOST_RUNDECK: localhost
-        SERVER_URL: https://ugh.laits.utexas.edu
-        PASSWORD: admin
+        SERVER_URL: ${SERVER_URL:-https://localhost}
+        PASSWORD: ${PASSWORD:-admin}
+        CRYPT_PASSWORD: ${CRYPT_PASSWORD:-supersecure}
         TZ: America/Chicago
         SERVER_NAME: Secondary
     ports:
