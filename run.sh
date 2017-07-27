@@ -19,6 +19,9 @@ if [ ! -f /etc/rundeck/profile ]; then
     sed 's,rundeckpassword,'$MYSQL_PASSWORD',g' -i /etc/rundeck/rundeck-config.groovy
     sed 's,tochange,'$PASSWORD',g' -i /etc/rundeck/realm.properties
     sed 's,5b59f9aa-f6f5-49dd-a919-ddc35d57df4b,'$UUID',g' -i /etc/rundeck/framework.properties
+    echo "rundeck.gui.login.welcome = \"${SERVER_NAME} HA node\"" >> /etc/rundeck/rundeck-config.groovy
+    echo "rundeck.gui.title = \"Rundeck ${SERVER_NAME}\"" >> /etc/rundeck/rundeck-config.groovy
+    echo "rundeck.gui.login.welcome = \"Welcome. ${SERVER_NAME} HA node\"" >> /etc/rundeck/rundeck-config.groovy
     PASSWORD=""
 fi
 

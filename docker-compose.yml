@@ -52,3 +52,16 @@ rundeck2:
         - ./volume/rundeck2:/var/rundeck
         - ./volume/lib2:/var/lib/rundeck
         - ./volume/log2:/var/log/rundeck
+
+rundeck-proxy:
+    image: nginx
+    volumes:
+      - ./etc/pki/tls/certs/local.crt:/etc/pki/tls/certs/server.key
+      - ./etc/pki/tls/private/local.key:/etc/pki/tls/certs/server.key
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./etc/nginx/vhosts.d/localhost.conf:/etc/nginx/vhosts.d/localhost.conf
+    ports:
+      - "127.0.0.1:443:443"
+    links:
+      - rundeck1
+      - rundeck2
