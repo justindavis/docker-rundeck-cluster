@@ -18,7 +18,7 @@ rundeck1:
         MYSQL_PASSWORD: 701d8d441eafc7023c9076125b5c4fcc82bc713f
         HOST_RUNDECK: localhost
         SERVER_URL: https://ugh.laits.utexas.edu
-        PASSWORD: f0rdpr3f3ct
+        PASSWORD: admin
         TZ: America/Chicago
         SERVER_NAME: Primary
     ports:
@@ -39,7 +39,7 @@ rundeck2:
         MYSQL_PASSWORD: 701d8d441eafc7023c9076125b5c4fcc82bc713f
         HOST_RUNDECK: localhost
         SERVER_URL: https://ugh.laits.utexas.edu
-        PASSWORD: f0rdpr3f3ct
+        PASSWORD: admin
         TZ: America/Chicago
         SERVER_NAME: Secondary
     ports:
